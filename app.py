@@ -36,15 +36,13 @@ def load_examples() -> dict:
     except FileNotFoundError:
         logger.warning("examples.json not found, using default examples")
         return {
-            "quick_prompts": [
-                "A beautiful sunset over mountains, digital art",
-                "A majestic dragon flying over a medieval castle, fantasy art",
-                "A cyberpunk cityscape at night, neon lights"
-            ]
+            "examples": []
         }
     except Exception as e:
         logger.error(f"Failed to load examples: {str(e)}")
-        return {"quick_prompts": []}
+        return {
+            "examples": [],
+        }
 
 
 def initialize_generator() -> ImageGenerator:
@@ -205,21 +203,7 @@ def create_interface() -> gr.Blocks:
         
         # Create examples for different categories
         all_examples = []
-        if "quick_prompts" in examples_data:
-            for prompt_data in examples_data["quick_prompts"]:
-                if isinstance(prompt_data, dict):
-                    all_examples.append([
-                        prompt_data["text"],
-                        prompt_data["num_inference_steps"],
-                        prompt_data["guidance_scale"],
-                        prompt_data["seed"],
-                        prompt_data["width"],
-                        prompt_data["height"],
-                        1  # num_images default
-                    ])
-                else:
-                    all_examples.append([prompt_data, 50, 7.5, None, 512, 512, 1])
-        
+
         # Add examples from categories
         if "examples" in examples_data:
             for category in examples_data["examples"]:
