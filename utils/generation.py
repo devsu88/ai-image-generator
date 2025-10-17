@@ -28,13 +28,13 @@ class ImageGenerator:
     and provides methods for generating images with configurable parameters.
     """
     
-    def __init__(self, model_id: str = "runwayml/stable-diffusion-v1-5"):
+    def __init__(self, model_id: str = "sd-legacy/stable-diffusion-v1-5"):
         """
         Initialize the ImageGenerator with a Stable Diffusion model.
         
         Args:
             model_id: The Hugging Face model ID for Stable Diffusion.
-                     Defaults to "runwayml/stable-diffusion-v1-5".
+                     Defaults to "sd-legacy/stable-diffusion-v1-5".
         
         Raises:
             RuntimeError: If the model fails to load or initialize.
