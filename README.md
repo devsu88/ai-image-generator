@@ -2,6 +2,12 @@
 
 A web application for generating high-quality images using Stable Diffusion with an intuitive Gradio interface. Generate stunning images from text prompts in seconds!
 
+## 🌐 Live Demo
+
+**Try the application online:**
+- 🚀 **[Hugging Face Space](https://huggingface.co/spaces/devsu/ai-image-generator)** - Live demo with GPU support
+- 💻 **Local Installation** - See installation instructions below
+
 ## 🚀 Features
 
 - **Text-to-Image Generation**: Create images from natural language descriptions
@@ -75,47 +81,52 @@ The application features a modern, full-width layout with two main sections:
 
 ## 🚀 Deploy on Hugging Face Spaces
 
-### Method 1: Using Hugging Face Hub
+### Quick Start (Recommended)
 
 1. **Create a new Space**
    - Go to [Hugging Face Spaces](https://huggingface.co/new-space)
-   - Choose "Gradio" as the SDK
-   - Set visibility (Public/Private)
-
-2. **Upload your files**
-   ```bash
-   # Install huggingface_hub
-   pip install huggingface_hub
-   
-   # Login to Hugging Face
-   huggingface-cli login
-   
-   # Upload files to your space
-   git clone https://huggingface.co/spaces/your-username/your-space-name
-   cp -r ai-image-generator/* your-space-name/
-   cd your-space-name
-   git add .
-   git commit -m "Add AI Image Generator"
-   git push
-   ```
-
-### Method 2: Direct Upload
-
-1. **Create Space on Hugging Face**
-   - Visit [huggingface.co/new-space](https://huggingface.co/new-space)
-   - Name: `ai-image-generator`
+   - Name: `ai-image-generator` (or your preferred name)
    - SDK: `Gradio`
-   - Hardware: `CPU` (free) or `GPU` (paid)
+   - Hardware: `CPU` (free) or `GPU` (paid for faster generation)
+   - Visibility: `Public`
 
-2. **Upload files via web interface**
-   - Upload all files from this repository
+2. **Upload files**
+   - Upload all files from this repository to your Space
    - Ensure `app.py` is the main file
+   - The Space will automatically build and deploy
 
-3. **Configure Space settings**
-   - In Space settings, set:
-     - **SDK**: Gradio
-     - **Hardware**: CPU (free tier) or GPU (for faster generation)
-     - **Visibility**: Public
+3. **Your Space is ready!**
+   - Share the link: `https://huggingface.co/spaces/your-username/ai-image-generator`
+   - Update the link in the [Live Demo](#-live-demo) section above
+
+### Advanced Deployment
+
+**Using Git (for developers):**
+```bash
+# Install huggingface_hub
+pip install huggingface_hub
+
+# Login to Hugging Face
+huggingface-cli login
+
+# Clone your space
+git clone https://huggingface.co/spaces/your-username/ai-image-generator
+cd ai-image-generator
+
+# Copy files
+cp -r /path/to/ai-image-generator/* .
+
+# Commit and push
+git add .
+git commit -m "Add AI Image Generator"
+git push
+```
+
+**Space Configuration:**
+- **SDK**: Gradio
+- **Hardware**: CPU (free) or GPU (paid)
+- **Visibility**: Public (recommended)
+- **Main file**: `app.py`
 
 ## 💡 Example Prompts
 
