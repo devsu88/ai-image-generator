@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import List, Optional, Tuple, Union
 
 import torch
-from diffusers import StableDiffusionPipeline
+from diffusers import AutoPipelineForText2Image
 from PIL import Image
 
 
@@ -28,13 +28,13 @@ class ImageGenerator:
     and provides methods for generating images with configurable parameters.
     """
     
-    def __init__(self, model_id: str = "sd-legacy/stable-diffusion-v1-5"):
+    def __init__(self, model_id: str = "stabilityai/sdxl-turbo"):
         """
         Initialize the ImageGenerator with a Stable Diffusion model.
         
         Args:
             model_id: The Hugging Face model ID for Stable Diffusion.
-                     Defaults to "sd-legacy/stable-diffusion-v1-5".
+                     Defaults to "stabilityai/sdxl-turbo".
         
         Raises:
             RuntimeError: If the model fails to load or initialize.
@@ -48,11 +48,10 @@ class ImageGenerator:
             logger.info(f"Using device: {self.device}")
             
             # Load the pipeline with appropriate device settings
-            self.pipeline = StableDiffusionPipeline.from_pretrained(
+            self.pipeline = AutoPipelineForText2Image.from_pretrained(
                 model_id,
                 torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
-                safety_checker=None,  # Disable safety checker for better performance
-                requires_safety_checker=False
+                variant="fp16"
             )
             
             # Move to device
@@ -85,8 +84,8 @@ class ImageGenerator:
         self,
         prompt: str,
         num_images: int = 1,
-        num_inference_steps: int = 50,
-        guidance_scale: float = 7.5,
+        num_inference_steps: int = 1,
+        guidance_scale: float = 0.0,
         width: int = 512,
         height: int = 512,
         seed: Optional[int] = None
@@ -117,17 +116,17 @@ class ImageGenerator:
         if num_images < 1 or num_images > 4:
             raise ValueError("Number of images must be between 1 and 4")
         
-        if num_inference_steps < 20 or num_inference_steps > 100:
-            raise ValueError("Inference steps must be between 20 and 100")
+        if num_inference_steps < 1 or num_inference_steps > 4:
+            raise ValueError("Inference steps must be between 1 and 4")
         
-        if guidance_scale < 1.0 or guidance_scale > 20.0:
-            raise ValueError("Guidance scale must be between 1.0 and 20.0")
+        # if guidance_scale != 0.0:
+        #     raise ValueError("Guidance scale must be 0.0 for best results")
         
-        if width > 512 or height > 512:
-            raise ValueError("Image dimensions cannot exceed 512x512")
+        if width > 1024 or height > 1024:
+            raise ValueError("Image dimensions cannot exceed 1024x1024")
         
-        if width < 64 or height < 64:
-            raise ValueError("Image dimensions must be at least 64x64")
+        if width < 512 or height < 512:
+            raise ValueError("Image dimensions must be at least 512x512")
         
         try:
             logger.info(f"Generating {num_images} image(s) with prompt: '{prompt[:50]}...'")

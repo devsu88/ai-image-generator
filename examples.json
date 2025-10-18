@@ -5,20 +5,20 @@
       "prompts": [
         {
           "text": "A serene mountain lake at sunset, crystal clear water, peaceful landscape, photorealistic",
-          "num_inference_steps": 50,
-          "guidance_scale": 7.5,
+          "num_inference_steps": 2,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A majestic waterfall in a tropical forest, misty atmosphere, vibrant colors, detailed",
-          "num_inference_steps": 60,
-          "guidance_scale": 8.0,
+          "num_inference_steps": 3,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -28,20 +28,20 @@
       "prompts": [
         {
           "text": "A majestic dragon flying over a medieval castle, fantasy art, epic, detailed",
-          "num_inference_steps": 70,
-          "guidance_scale": 8.5,
+          "num_inference_steps": 4,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A magical forest with glowing mushrooms and fairy lights, enchanted atmosphere, fantasy",
-          "num_inference_steps": 65,
-          "guidance_scale": 7.8,
+          "num_inference_steps": 3,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -51,20 +51,20 @@
       "prompts": [
         {
           "text": "A cyberpunk cityscape at night, neon lights, futuristic, high-tech atmosphere",
-          "num_inference_steps": 55,
-          "guidance_scale": 7.2,
+          "num_inference_steps": 2,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A futuristic robot in a high-tech laboratory, sci-fi, detailed, modern",
-          "num_inference_steps": 60,
-          "guidance_scale": 8.0,
+          "num_inference_steps": 3,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -74,20 +74,20 @@
       "prompts": [
         {
           "text": "A cute robot playing with a cat, cartoon style, colorful, kawaii, adorable",
-          "num_inference_steps": 45,
-          "guidance_scale": 6.5,
+          "num_inference_steps": 1,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A majestic lion in the African savanna, wildlife photography, golden hour lighting",
-          "num_inference_steps": 55,
-          "guidance_scale": 7.8,
+          "num_inference_steps": 3,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -97,20 +97,20 @@
       "prompts": [
         {
           "text": "A professional headshot of a businesswoman, corporate style, clean background, professional",
-          "num_inference_steps": 50,
-          "guidance_scale": 7.0,
+          "num_inference_steps": 2,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "An elderly wise wizard with a long beard, fantasy portrait, detailed, magical",
-          "num_inference_steps": 65,
-          "guidance_scale": 8.2,
+          "num_inference_steps": 4,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -120,20 +120,20 @@
       "prompts": [
         {
           "text": "Colorful abstract art, geometric shapes, modern, vibrant, contemporary",
-          "num_inference_steps": 40,
-          "guidance_scale": 6.0,
+          "num_inference_steps": 1,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A surreal dreamscape with floating islands, ethereal atmosphere, artistic",
-          "num_inference_steps": 70,
-          "guidance_scale": 8.5,
+          "num_inference_steps": 4,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -143,20 +143,20 @@
       "prompts": [
         {
           "text": "A delicious chocolate cake on a wooden table, food photography, appetizing",
-          "num_inference_steps": 50,
-          "guidance_scale": 7.5,
+          "num_inference_steps": 2,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "Fresh fruits in a rustic basket, natural lighting, still life, artistic",
-          "num_inference_steps": 45,
-          "guidance_scale": 7.0,
+          "num_inference_steps": 1,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]
@@ -166,20 +166,20 @@
       "prompts": [
         {
           "text": "A modern glass skyscraper at sunset, architectural photography, urban landscape",
-          "num_inference_steps": 55,
-          "guidance_scale": 7.5,
+          "num_inference_steps": 3,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         },
         {
           "text": "A cozy cottage in the countryside, rustic architecture, peaceful, charming",
-          "num_inference_steps": 50,
-          "guidance_scale": 7.2,
+          "num_inference_steps": 2,
+          "guidance_scale": 0.0,
           "seed": null,
-          "width": 512,
-          "height": 512,
+          "width": 1024,
+          "height": 1024,
           "num_images": 1
         }
       ]

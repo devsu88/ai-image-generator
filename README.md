@@ -10,20 +10,21 @@ A web application for generating high-quality images using Stable Diffusion with
 
 ## 🚀 Features
 
-- **Text-to-Image Generation**: Create images from natural language descriptions
-- **Configurable Parameters**: Fine-tune generation with inference steps, guidance scale, and more
+- **Text-to-Image Generation**: Create images from natural language descriptions using SDXL-Turbo
+- **Optimized Parameters**: Fine-tune generation with inference steps (1-4) for fast, high-quality results
 - **Multiple Images**: Generate 1-4 images per prompt for variety
-- **Custom Dimensions**: Adjust image size up to 512x512 pixels
+- **High-Resolution Output**: Generate images up to 1024x1024 pixels
 - **Reproducible Results**: Use seeds for consistent generation
 - **Local Saving**: Automatically save generated images with metadata
 - **GPU/CPU Support**: Automatic device detection with CPU fallback
 - **Modern UI**: Clean, responsive full-width interface with real-time feedback
 - **Example Integration**: One-click examples that auto-fill all parameters
+- **Fast Generation**: SDXL-Turbo model optimized for quick inference (1-4 steps)
 
 ## 🛠️ Technologies
 
 - **Gradio**: Web interface framework
-- **Stable Diffusion**: AI image generation model
+- **Stable Diffusion XL Turbo**: Fast AI image generation model
 - **PyTorch**: Deep learning backend
 - **Diffusers**: Hugging Face diffusion models library
 - **PIL**: Image processing and saving
@@ -70,8 +71,8 @@ The application features a modern, full-width layout with two main sections:
 ### Left Column - Input & Examples
 - **Example Prompts**: Click any example to auto-fill all parameters
 - **Text Prompt**: Enter your custom description
-- **Generation Settings**: Configure inference steps, guidance scale, seed
-- **Image Settings**: Set dimensions and number of images
+- **Generation Settings**: Configure inference steps (1-4), seed for reproducibility
+- **Image Settings**: Set dimensions (512-1024px) and number of images (1-4)
 - **Generate Button**: Start the image generation process
 
 ### Right Column - Output
@@ -147,9 +148,9 @@ Try these prompts to get started:
 
 ### Enhanced Examples with Parameters
 Each example now includes optimized parameters:
-- **Inference Steps**: Tailored for each prompt type (45-80 steps)
-- **Guidance Scale**: Optimized for prompt adherence (6.5-9.5)
-- **Dimensions**: Standard 512x512 for consistency
+- **Inference Steps**: Optimized for SDXL-Turbo (1-4 steps for fast generation)
+- **Guidance Scale**: Fixed at 0.0 (optimal for SDXL-Turbo model)
+- **Dimensions**: High-resolution 1024x1024 for best quality
 - **Seed**: Null for random generation (can be customized)
 
 ### Using Examples in the Interface
@@ -160,10 +161,10 @@ Each example now includes optimized parameters:
 
 ## ⚙️ Parameters Guide
 
-- **Inference Steps** (20-100): More steps = better quality, slower generation
-- **Guidance Scale** (1-20): Higher values = closer to prompt, may be more constrained
+- **Inference Steps** (1-4): More steps = better quality, slower generation. SDXL-Turbo optimized for 1-4 steps
+- **Guidance Scale**: Fixed at 0.0 (optimal for SDXL-Turbo model - no user control needed)
 - **Seed**: Use same seed + prompt for identical results
-- **Dimensions**: Up to 512x512 pixels (higher = more memory required)
+- **Dimensions**: 512-1024 pixels (higher = more memory required)
 - **Number of Images**: Generate 1-4 variations per prompt
 
 ## 🔧 Troubleshooting
@@ -171,14 +172,14 @@ Each example now includes optimized parameters:
 ### Common Issues
 
 1. **Out of Memory Error**
-   - Reduce image dimensions (try 256x256)
-   - Decrease number of inference steps
+   - Reduce image dimensions (try 512x512 instead of 1024x1024)
+   - Decrease number of inference steps (use 1-2 instead of 3-4)
    - Use CPU instead of GPU
 
 2. **Slow Generation**
    - Ensure you're using GPU if available
-   - Reduce inference steps
-   - Use smaller image dimensions
+   - Reduce inference steps (SDXL-Turbo works well with 1-2 steps)
+   - Use smaller image dimensions (512x512 is faster than 1024x1024)
 
 3. **Model Loading Issues**
    - Check internet connection
@@ -187,9 +188,10 @@ Each example now includes optimized parameters:
 
 ### Performance Tips
 
-- **GPU**: 10-30 seconds per image
-- **CPU**: 2-5 minutes per image
+- **GPU**: 2-10 seconds per image (SDXL-Turbo optimized)
+- **CPU**: 30 seconds - 2 minutes per image
 - **Memory**: 4-8GB RAM recommended
+- **SDXL-Turbo**: Optimized for fast generation with 1-4 inference steps
 
 ## 📁 Project Structure
 
@@ -219,7 +221,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Credits
 
-- **Stable Diffusion Model**: [runwayml/stable-diffusion-v1-5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
+- **Stable Diffusion XL Turbo**: [stabilityai/sdxl-turbo](https://huggingface.co/stabilityai/sdxl-turbo)
 - **Original Stable Diffusion**: [stabilityai/stable-diffusion](https://github.com/Stability-AI/stablediffusion)
 - **Gradio Framework**: [gradio.app](https://gradio.app)
 - **Hugging Face**: [huggingface.co](https://huggingface.co)

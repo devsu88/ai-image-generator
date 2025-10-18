@@ -68,7 +68,7 @@ def initialize_generator() -> ImageGenerator:
 def generate_images_interface(
     prompt: str,
     num_inference_steps: int,
-    guidance_scale: float,
+    # guidance_scale: float,  # Commented out - using default value 0.0
     seed: Optional[int],
     width: int,
     height: int,
@@ -80,7 +80,7 @@ def generate_images_interface(
     Args:
         prompt: Text prompt for image generation.
         num_inference_steps: Number of denoising steps.
-        guidance_scale: How closely to follow the prompt.
+        # guidance_scale: How closely to follow the prompt.  # Commented out
         seed: Random seed for reproducibility.
         width: Image width.
         height: Image height.
@@ -107,7 +107,7 @@ def generate_images_interface(
             prompt=prompt,
             num_images=num_images,
             num_inference_steps=num_inference_steps,
-            guidance_scale=guidance_scale,
+            guidance_scale=0.0,  # Using default value since guidance_scale is removed from UI
             width=width,
             height=height,
             seed=seed
@@ -118,7 +118,7 @@ def generate_images_interface(
         for i, image in enumerate(images):
             metadata = {
                 "num_inference_steps": num_inference_steps,
-                "guidance_scale": guidance_scale,
+                "guidance_scale": 0.0,  # Using default value
                 "seed": seed,
                 "width": width,
                 "height": height,
@@ -213,14 +213,14 @@ def create_interface() -> gr.Blocks:
                             all_examples.append([
                                 prompt_data["text"],
                                 prompt_data["num_inference_steps"],
-                                prompt_data["guidance_scale"],
+                                # prompt_data["guidance_scale"],  # Commented out - using default value
                                 prompt_data["seed"],
                                 prompt_data["width"],
                                 prompt_data["height"],
                                 1  # num_images default
                             ])
                         else:
-                            all_examples.append([prompt_data, 50, 7.5, None, 512, 512, 1])
+                            all_examples.append([prompt_data, 2, None, 1024, 1024, 1])  # Updated to match new parameters
         
         # Limit to 8 examples for better UI
         all_examples = all_examples[:8]
@@ -243,22 +243,22 @@ def create_interface() -> gr.Blocks:
                     gr.Markdown("#### ⚙️ Generation Settings")
                     
                     num_inference_steps = gr.Slider(
-                        minimum=20,
-                        maximum=100,
-                        value=50,
+                        minimum=1,
+                        maximum=4,
+                        value=2,
                         step=1,
                         label="Inference Steps",
                         info="More steps = better quality, slower generation"
                     )
                     
-                    guidance_scale = gr.Slider(
-                        minimum=1.0,
-                        maximum=20.0,
-                        value=7.5,
-                        step=0.1,
-                        label="Guidance Scale",
-                        info="How closely to follow the prompt"
-                    )
+                    # guidance_scale = gr.Slider(
+                    #     minimum=1.0,
+                    #     maximum=20.0,
+                    #     value=7.5,
+                    #     step=0.1,
+                    #     label="Guidance Scale",
+                    #     info="How closely to follow the prompt"
+                    # )
                     
                     seed = gr.Number(
                         label="Seed (optional)",
@@ -274,18 +274,18 @@ def create_interface() -> gr.Blocks:
                     with gr.Row():
                         width = gr.Number(
                             label="Width",
-                            value=512,
-                            minimum=64,
-                            maximum=512,
+                            value=1024,
+                            minimum=512,
+                            maximum=1024,
                             step=64,
                             precision=0
                         )
                         
                         height = gr.Number(
                             label="Height", 
-                            value=512,
-                            minimum=64,
-                            maximum=512,
+                            value=1024,
+                            minimum=512,
+                            maximum=1024,
                             step=64,
                             precision=0
                         )
@@ -332,7 +332,7 @@ def create_interface() -> gr.Blocks:
         gr.HTML("""
         <div style="text-align: center; margin-top: 2rem; padding: 1rem; border-top: 1px solid #eee;">
             <p>
-                Powered by <a href="https://huggingface.co/runwayml/stable-diffusion-v1-5" target="_blank">Stable Diffusion v1.5</a> | 
+                Powered by <a href="https://huggingface.co/docs/diffusers/using-diffusers/sdxl_turbo" target="_blank">Stable Diffusion XL Turbo</a> | 
                 Built with <a href="https://gradio.app" target="_blank">Gradio</a>
             </p>
         </div>
@@ -346,7 +346,7 @@ def create_interface() -> gr.Blocks:
                 inputs=[
                     prompt_input,
                     num_inference_steps,
-                    guidance_scale,
+                    # guidance_scale,  # Commented out - removed from UI
                     seed,
                     width,
                     height,
@@ -362,7 +362,7 @@ def create_interface() -> gr.Blocks:
             inputs=[
                 prompt_input,
                 num_inference_steps,
-                guidance_scale,
+                # guidance_scale,  # Commented out - removed from UI
                 seed,
                 width,
                 height,
